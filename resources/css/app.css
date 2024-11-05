@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.special-case {
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+}
