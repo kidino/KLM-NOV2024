@@ -1,0 +1,16 @@
+Generate Sample Data dengan Seeder 
+
+1 - Kita nak buat sample data dalam database
+2 - Boleh guna DB Seeder
+3 - DB Seeder akan guna Factory 
+    Factory menyimpan skema contoh untuk data 
+4 - Factory menggunakan library Faker 
+
+Macam mana nak display data User
+
+1 - Create Resource Controller - UserController 
+2 - Add Resource Router (web.php)
+3 - Update UserController - index() function 
+4 - index() function akan guna view users/index.blade.php 
+5 - Create & update view users/index.blade.php 
+

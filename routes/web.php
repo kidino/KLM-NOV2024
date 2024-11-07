@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LearningController;
 
@@ -30,6 +31,8 @@ Route::middleware('auth')->group(function () {
 Route::get('kelas-malam-laravel', function(){
     echo "<h1>Selamat Datang ke Kelas Malam Laravel</h1>";
 });
+
+Route::resource('user', UserController::class)->middleware('auth');
 
 
 require __DIR__.'/auth.php';

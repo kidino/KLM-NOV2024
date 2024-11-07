@@ -85,9 +85,6 @@
             :active="request()->routeIs('learning')">
                 {{ __('Learning') }}
             </x-responsive-nav-link>
-
-
-
         </div>
 
         <!-- Responsive Settings Options -->

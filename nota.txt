@@ -1,0 +1,26 @@
+1 - update tailwind.config.js
+  - masukkan themes
+
+2 - kemaskini komponen text-input.blade.php
+  - tambah class "input input-bordered" 
+
+3 - kemaskini layouts/guest.blade.php 
+  - tambah theme dalam <html> tag 
+
+------
+
+1 - update routes/web.php 
+  - tambah route /learning 
+  - learning akan pakai LearningController
+
+2 - create LearningController.php 
+  - php artisan make:controller LearningController
+  - LearningController.php, create index() function
+  - index function akan return view learning.blade.php 
+
+3 - create learning view 
+  - php artisan make:view learning
+  - dia akan generate learning.blade.php
+  - copy content from dashboard.blade.php to start
+
+4 - back to web.php, kena import LearningController 

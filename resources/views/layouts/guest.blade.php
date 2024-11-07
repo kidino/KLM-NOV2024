@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html 
-data-theme="bumblebee"
+data-theme="cupcake"
 lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
