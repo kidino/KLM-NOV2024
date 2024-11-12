@@ -13,15 +13,18 @@ class UserController extends Controller
     public function index()
     {
         // $users = User::all();
-        $users = User::paginate(10);
         // $users = User::where('email','thomas.turcotte@zmember.test')->get();
 
-        // dd( $users );
+        $users = User::paginate(10);
 
-        return view('user.index', [
-            'users' => $users,
-            'cikgu' => 'Iszuddin'
-        ]);
+        // return view('user.index', [
+        //     'users' => $users,
+        //     'cikgu' => 'Iszuddin'
+        // ]);
+
+        $cikgu = 'Iszuddin';
+
+        return view('user.index', compact('users', 'cikgu'));
     }
 
     /**
@@ -64,9 +67,27 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        // dd($request, $user);
+
+        $rules = [
+            'name' => 'required|string|max:255|min:5',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'user_type' => 'required|in:normal,admin'
+        ];
+
+        $validated_data = $request->validate( $rules );
+
+        $user->name = $validated_data['name']; 
+        $user->email = $validated_data['email'];
+        $user->user_type = $validated_data['user_type'];
+
+        $user->save();
+
+        return redirect()->route('user.index')
+            ->with('success','User has been updated');
+
     }
 
     /**

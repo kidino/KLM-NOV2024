@@ -24,6 +24,14 @@
                     </x-nav-link>
                 </div>
 
+                @if(Auth::user()->isAdmin()) 
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('user.index')" 
+                            :active="request()->routeIs('user.*')">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                    </div>
+                @endif
 
             </div>
 
@@ -85,6 +93,13 @@
             :active="request()->routeIs('learning')">
                 {{ __('Learning') }}
             </x-responsive-nav-link>
+
+            @if(Auth::user()->isAdmin()) 
+            <x-responsive-nav-link :href="route('user.index')" 
+            :active="request()->routeIs('user.*')">
+                {{ __('User') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

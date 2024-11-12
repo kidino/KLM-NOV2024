@@ -32,7 +32,7 @@ Route::get('kelas-malam-laravel', function(){
     echo "<h1>Selamat Datang ke Kelas Malam Laravel</h1>";
 });
 
-Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('user', UserController::class)->middleware(['auth', 'admin']);
 
 
 require __DIR__.'/auth.php';
