@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LearningController;
@@ -33,6 +34,7 @@ Route::get('kelas-malam-laravel', function(){
 });
 
 Route::resource('user', UserController::class)->middleware(['auth', 'admin']);
+Route::resource('plan', PlanController::class)->middleware(['auth', 'admin']);
 
 
 require __DIR__.'/auth.php';
