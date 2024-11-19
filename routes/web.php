@@ -4,11 +4,22 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\LearningController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [
+    HomepageController::class, 'index'
+])->name('home');
+
+Route::get('/pricing', [
+    HomepageController::class, 'pricing'
+])->name('pricing');
+
+
 
 Route::get('/demo', function(){
     return view('daisyui-test');

@@ -78,7 +78,7 @@ class PlanController extends Controller
             'description' => 'nullable|string',
             'term' => 'required|in:monthly,yearly,lifetime',
             'membership_fee' => 'required|numeric',
-            'currency' => 'required|string|in:USD,MYR'
+            'currency' => 'required|string'
         ]);    
     
         $plan->update( $validated_data );
