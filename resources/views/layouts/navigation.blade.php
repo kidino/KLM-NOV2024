@@ -24,6 +24,13 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('membership.index')" 
+                        :active="request()->routeIs('membership.*')">
+                        {{ __('Membership') }}
+                    </x-nav-link>
+                </div>
+
                 @if(Auth::user()->isAdmin()) 
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('user.index')" 
@@ -100,6 +107,11 @@
             <x-responsive-nav-link :href="route('learning')" 
             :active="request()->routeIs('learning')">
                 {{ __('Learning') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('membership.index')" 
+            :active="request()->routeIs('membership.*')">
+                {{ __('Membership') }}
             </x-responsive-nav-link>
 
             @if(Auth::user()->isAdmin()) 

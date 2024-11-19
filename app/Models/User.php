@@ -22,6 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'user_type',
+        'expiry_date',
+        'plan_id'
     ];
 
     /**
@@ -51,5 +53,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return once(function(){
             return ($this->user_type == 'admin');
         });
+    }
+
+    public function plan() {
+        return $this->belongsTo(Plan::class);
     }
 }
