@@ -30,7 +30,9 @@
                                 <h2 class="card-title">{{ $plan->name }}</h2>
                                 <p>{{$plan->description}}</p>
                                 <div class="card-actions justify-end">
-                                <button class="btn btn-primary">{{$plan->currencyMembershipFee}} Buy Now</button>
+                                <a 
+                                href="route('checked.go', $plan->code, 'securepay')"   
+                                class="btn btn-primary">{{$plan->currencyMembershipFee}} Buy Now</a>
                                 </div>
                             </div>
                         </div>

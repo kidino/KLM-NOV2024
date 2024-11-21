@@ -13,6 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         
+        $middleware->validateCsrfTokens( except: [
+            'verify/*/*'
+        ]);
+
+
         $middleware->alias([
             'admin' => AdminMiddleware::class
         ]);

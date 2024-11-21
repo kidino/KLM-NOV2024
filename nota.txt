@@ -24,3 +24,39 @@
   - copy content from dashboard.blade.php to start
 
 4 - back to web.php, kena import LearningController 
+
+----
+
+KELAS 07 - PAYMENT 
+
+Model - Payment 
+Buat table - migration create_payments_table 
+Run Migration 
+
+Controller - CheckoutController 
+2 - public function 
+2 - private function 
+
+View -- thank you page 
+
+X SecurePay -- add library for SecurePay 
+
+X Update .env -- dengan SecurePay API auth details
+
+Update Laravel to allow no @CSRF for payments 
+
+X Create routing 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

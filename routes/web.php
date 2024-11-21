@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
@@ -42,8 +43,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/membership', [MembershipController::class, 'index'])->name('membership.index');
 
-
-
 });
 
 Route::get('kelas-malam-laravel', function(){
@@ -53,5 +52,24 @@ Route::get('kelas-malam-laravel', function(){
 Route::resource('user', UserController::class)->middleware(['auth', 'admin']);
 Route::resource('plan', PlanController::class)->middleware(['auth', 'admin']);
 
+// checkout/BAS-123/securepay
+Route::get('/checkout/{plan:code}/{payment_method}',
+    [
+        CheckoutController::class,
+        'index'
+    ])->name('checkout.go');
+
+// verify/12121212121222112255855/securepay
+Route::get('/verify/{payment:payment_code}/{payment_method}',
+    [
+        CheckoutController::class,
+        'verify'
+    ])->name('checkout.verify');
+
+Route::post('/verify/{payment:payment_code}/{payment_method}',
+[
+    CheckoutController::class,
+    'verify'
+]);
 
 require __DIR__.'/auth.php';
