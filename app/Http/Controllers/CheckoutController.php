@@ -61,7 +61,7 @@ class CheckoutController extends Controller
         return Payment::create([
             'plan_id' => $plan->id,
             'user_id' => $user->id,
-            'amount' => $plan->decimal_membership_fee,
+            'amount' => $plan->membership_fee,
             'payment_method' => $payment_method,
             'payment_status' => 'pending',
             'payment_code' => Str::random(30),

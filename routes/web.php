@@ -72,4 +72,12 @@ Route::post('/verify/{payment:payment_code}/{payment_method}',
     'verify'
 ]);
 
+// Route::view('/mail/expiry-reminder','mail.expiry-reminder');
+
+Route::get('/mail/expiry-reminder', function(){
+    return view('mail.expiry-reminder', [
+        'user' => \App\Models\User::first()
+    ]);
+});
+
 require __DIR__.'/auth.php';
