@@ -44,40 +44,42 @@
                             dark:shadow-none dark:bg-gray-800 dark:border-gray-700 astro-UY3JLCBK">
                    
                     <div class="text-gray-600 dark:text-gray-300 lg:pr-4 lg:w-auto w-full lg:pt-0 astro-UY3JLCBK">
-                        <ul class="tracking-wide font-medium lg:text-sm flex-col flex lg:flex-row gap-6 lg:gap-0 astro-UY3JLCBK">
-                            <li class="astro-UY3JLCBK">
-                                <a href="#" class="block md:px-4 transition hover:text-primary astro-UY3JLCBK">
-                                    <span class="astro-UY3JLCBK">Teams</span>
-                                </a>
-                            </li>
-                            <li class="astro-UY3JLCBK">
-                                <a href="#" class="block md:px-4 transition hover:text-primary astro-UY3JLCBK">
-                                    <span class="astro-UY3JLCBK">Enterprise</span>
-                                </a>
-                            </li>
-                            <li class="astro-UY3JLCBK">
-                                <a href="#" class="block md:px-4 transition hover:text-primary astro-UY3JLCBK">
-                                    <span class="astro-UY3JLCBK">Ressources</span>
-                                </a>
-                            </li>
-                            <li class="astro-UY3JLCBK">
-                                <a href="#" class="block md:px-4 transition hover:text-primary astro-UY3JLCBK">
-                                    <span class="astro-UY3JLCBK">Pricing</span>
-                                </a>
-                            </li>
-                            <li class="astro-UY3JLCBK">
-                                <a href="#" class="block md:px-4 transition hover:text-primary astro-UY3JLCBK">
-                                    <span class="astro-UY3JLCBK">Blog</span>
-                                </a>
-                            </li>
-                        </ul>
+
+
+                        @if (Route::has('login'))
+                            <nav class="-mx-3 flex flex-1 justify-end">
+                                @auth
+                                    <a
+                                        href="{{ url('/dashboard') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Dashboard
+                                    </a>
+                                @else
+                                    <a
+                                        href="{{ route('login') }}"
+                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        Log in
+                                    </a>
+
+                                @endauth
+                            </nav>
+                        @endif
+
+
                     </div>
 
-                    <div class="mt-12 lg:mt-0 astro-UY3JLCBK">
-                        <a href="#" class="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max astro-UY3JLCBK">
-                            <span class="relative text-sm font-semibold text-white astro-UY3JLCBK">Get Started</span>
-                        </a>
-                    </div>
+                    @guest
+                      @if (Route::has('register'))
+
+                      <div class="mt-12 lg:mt-0 astro-UY3JLCBK">
+                          <a href="{{ route('register') }}" class="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max astro-UY3JLCBK">
+                              <span class="relative text-sm font-semibold text-white astro-UY3JLCBK">Register</span>
+                          </a>
+                      </div>
+                      @endif
+                    @endguest
                 </div>
             </div>
 </div>
