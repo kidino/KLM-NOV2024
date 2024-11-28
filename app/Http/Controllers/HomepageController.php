@@ -13,7 +13,7 @@ class HomepageController extends Controller
 
         // dd($plans);
 
-        return view('homepage.index2', compact('plans'));
+        return view('homepage.index', compact('plans'));
     }
 
     public function pricing() {
